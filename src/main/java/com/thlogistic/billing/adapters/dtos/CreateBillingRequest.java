@@ -25,6 +25,4 @@ public class CreateBillingRequest {
     Integer status;
     @NotEmpty(message = "Invalid type")
     Integer type;
-    @NotEmpty(message = "Invalid requested by driver")
-    Boolean isRequestedByDriver;
 }

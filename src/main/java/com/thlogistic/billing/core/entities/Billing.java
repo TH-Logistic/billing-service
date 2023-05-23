@@ -22,5 +22,4 @@ public class Billing {
     String createdAt;
     Integer status;
     Integer type;
-    Boolean isRequestedByDriver;
 }

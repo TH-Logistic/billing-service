@@ -34,7 +34,6 @@ public class CreateBillingUseCaseImpl implements CreateBillingUseCase {
         entityBuilder.createdAt(DateTimeHelper.getCurrentTimeFormatted());
         entityBuilder.status(requestContent.getStatus());
         entityBuilder.type(requestContent.getType());
-        entityBuilder.isRequestedByDriver(requestContent.getIsRequestedByDriver());
 
         String id = repository.insert(entityBuilder.build());
 

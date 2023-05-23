@@ -28,7 +28,6 @@ public class BillingEntity {
     String createdAt;
     Integer status;
     Integer type;
-    Boolean isRequestedByDriver;
 
     public Billing toBilling() {
         return new Billing(
@@ -40,8 +39,7 @@ public class BillingEntity {
                 cost,
                 createdAt,
                 status,
-                type,
-                isRequestedByDriver
+                type
         );
     }
 }

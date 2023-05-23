@@ -1,12 +1,9 @@
 package com.thlogistic.billing.adapters.controllers;
 
-import com.thlogistic.billing.adapters.dtos.BaseTokenRequest;
-import com.thlogistic.billing.adapters.dtos.CreateBillingRequest;
-import com.thlogistic.billing.adapters.dtos.CreateBillingResponse;
-import com.thlogistic.billing.adapters.dtos.GetBillingResponse;
+import com.thlogistic.billing.adapters.dtos.*;
 import com.thlogistic.billing.core.usecases.CreateBillingUseCase;
 import com.thlogistic.billing.core.usecases.GetBillingByJobIdUseCase;
-import com.thlogistic.billing.core.usecases.GetBillingByOrganizationIdUseCase;
+import com.thlogistic.billing.core.usecases.GetStatisticByOrganizationUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +16,18 @@ public class BillingController extends BaseController implements BillingResource
 
     private final CreateBillingUseCase createBillingUseCase;
     private final GetBillingByJobIdUseCase getBillingByJobIdUseCase;
-    private final GetBillingByOrganizationIdUseCase getBillingByOrganizationIdUseCase;
+    private final GetStatisticByOrganizationUseCase getStatisticByOrganizationUseCase;
+
+    @Override
+    public ResponseEntity<Object> getStatisticByOrganization(String token, String organizationId) {
+        GetBillingStatisticResponse result = getStatisticByOrganizationUseCase.execute(
+                new BaseTokenRequest<>(
+                        token,
+                        organizationId
+                )
+        );
+        return successResponse(result, null);
+    }
 
     @Override
     public ResponseEntity<Object> getBillingsByJobId(String token, String jobId) {
@@ -27,17 +35,6 @@ public class BillingController extends BaseController implements BillingResource
                 new BaseTokenRequest<>(
                         token,
                         jobId
-                )
-        );
-        return successResponse(result, null);
-    }
-
-    @Override
-    public ResponseEntity<Object> getBillingsByOrganizationId(String token, String organizationId) {
-        List<GetBillingResponse> result = getBillingByOrganizationIdUseCase.execute(
-                new BaseTokenRequest<>(
-                        token,
-                        organizationId
                 )
         );
         return successResponse(result, null);

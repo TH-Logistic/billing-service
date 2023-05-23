@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/billing")
 interface BillingResource {
 
+    @GetMapping("/statistic/organization/{organizationId}")
+    ResponseEntity<Object> getStatisticByOrganization(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @PathVariable String organizationId);
+
     @GetMapping("/find-by-job/{jobId}")
     ResponseEntity<Object> getBillingsByJobId(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @PathVariable String jobId);
-
-    @GetMapping("/find-by-organization/{organizationId}")
-    ResponseEntity<Object> getBillingsByOrganizationId(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @PathVariable String organizationId);
 
     @PostMapping
     ResponseEntity<Object> createBilling(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @Valid @RequestBody CreateBillingRequest request);

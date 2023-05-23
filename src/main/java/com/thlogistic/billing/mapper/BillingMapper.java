@@ -14,7 +14,6 @@ public class BillingMapper {
         response.setCreatedAt(billing.getCreatedAt());
         response.setStatus(billing.getStatus());
         response.setType(billing.getType());
-        response.setIsRequestedByDriver(billing.getIsRequestedByDriver());
         return response;
     }
 }
