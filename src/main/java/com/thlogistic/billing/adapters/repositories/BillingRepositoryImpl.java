@@ -29,6 +29,11 @@ public class BillingRepositoryImpl implements BillingRepository {
     }
 
     @Override
+    public List<BillingEntity> findAll() {
+        return repository.findAll();
+    }
+
+    @Override
     public List<BillingEntity> findByJobId(String jobId) {
         return repository.findAllByJobId(jobId);
     }

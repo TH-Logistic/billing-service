@@ -13,6 +13,9 @@ interface BillingResource {
     @GetMapping("/statistic/organization/{organizationId}")
     ResponseEntity<Object> getStatisticByOrganization(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @PathVariable String organizationId);
 
+    @GetMapping("/statistic/dashboard")
+    ResponseEntity<Object> getStatisticForDashboard(@RequestHeader(HttpHeaders.AUTHORIZATION) String token);
+
     @GetMapping("/find-by-job/{jobId}")
     ResponseEntity<Object> getBillingsByJobId(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @PathVariable String jobId);
 

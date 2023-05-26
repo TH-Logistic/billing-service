@@ -4,6 +4,7 @@ import com.thlogistic.billing.adapters.dtos.*;
 import com.thlogistic.billing.core.usecases.CreateBillingUseCase;
 import com.thlogistic.billing.core.usecases.GetBillingByJobIdUseCase;
 import com.thlogistic.billing.core.usecases.GetStatisticByOrganizationUseCase;
+import com.thlogistic.billing.core.usecases.GetStatisticForDashboardUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ public class BillingController extends BaseController implements BillingResource
     private final CreateBillingUseCase createBillingUseCase;
     private final GetBillingByJobIdUseCase getBillingByJobIdUseCase;
     private final GetStatisticByOrganizationUseCase getStatisticByOrganizationUseCase;
+    private final GetStatisticForDashboardUseCase getStatisticForDashboardUseCase;
 
     @Override
     public ResponseEntity<Object> getStatisticByOrganization(String token, String organizationId) {
@@ -26,6 +28,12 @@ public class BillingController extends BaseController implements BillingResource
                         organizationId
                 )
         );
+        return successResponse(result, null);
+    }
+
+    @Override
+    public ResponseEntity<Object> getStatisticForDashboard(String token) {
+        GetBillingStatisticResponse result = getStatisticForDashboardUseCase.execute();
         return successResponse(result, null);
     }
 

@@ -13,6 +13,7 @@ public interface BillingRepository {
     String save(BillingEntity job);
 
     Optional<BillingEntity> findById(String id);
+    List<BillingEntity> findAll();
     List<BillingEntity> findByJobId(String jobId);
     List<BillingEntity> findByOrganizationId(String organizationId);
 }
