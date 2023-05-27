@@ -18,5 +18,4 @@ public class GetBillingResponse {
     String createdAt;
     Integer status;
     Integer type;
-    Boolean isRequestedByDriver;
 }

@@ -2,6 +2,7 @@ package com.thlogistic.billing.adapters.dtos;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,11 +19,11 @@ public class CreateBillingRequest {
     String title;
     @NotEmpty(message = "Invalid description")
     String description;
-    @NotEmpty(message = "Invalid cost")
+    @NotNull(message = "Invalid cost")
     @Min(value = 0, message = "Invalid cost")
     Double cost;
-    @NotEmpty(message = "Invalid status")
+    @NotNull(message = "Invalid status")
     Integer status;
-    @NotEmpty(message = "Invalid type")
+    @NotNull(message = "Invalid type")
     Integer type;
 }

@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfig {
 
-    // TODO: Change this into env var
-    private static final String httpPath = System.getenv("http://");
-    private static final String domainUrl = System.getenv("DOMAIN_URL");
+    private static final String httpPath = "http://";
+//    private static final String domainUrl = System.getenv("DOMAIN_URL");
+    private static final String domainUrl = "www.thinhlh.com";
 
     public static final String AUTHORIZATION_BASE_URL = httpPath + domainUrl + ":8000";
 
