@@ -15,7 +15,7 @@ public class GetBillingResponse {
     String title;
     String description;
     Double cost;
-    String createdAt;
+    Long createdAt;
     Integer status;
     Integer type;
 }

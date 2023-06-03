@@ -6,9 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DateTimeHelper {
-    public static String getCurrentTimeFormatted() {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Const.dateTimeFormat);
-        return now.format(formatter);
+    public static Long getCurrentTimeInEpoch() {
+        return System.currentTimeMillis();
     }
 }

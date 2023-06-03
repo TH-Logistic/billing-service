@@ -31,7 +31,7 @@ public class CreateBillingUseCaseImpl implements CreateBillingUseCase {
         entityBuilder.title(requestContent.getTitle());
         entityBuilder.description(requestContent.getDescription());
         entityBuilder.cost(requestContent.getCost());
-        entityBuilder.createdAt(DateTimeHelper.getCurrentTimeFormatted());
+        entityBuilder.createdAt(DateTimeHelper.getCurrentTimeInEpoch());
         entityBuilder.status(requestContent.getStatus());
         entityBuilder.type(requestContent.getType());
 
