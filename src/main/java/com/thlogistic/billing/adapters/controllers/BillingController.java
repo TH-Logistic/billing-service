@@ -39,7 +39,7 @@ public class BillingController extends BaseController implements BillingResource
 
     @Override
     public ResponseEntity<Object> getBillingsByJobId(String token, String jobId) {
-        List<GetBillingResponse> result = getBillingByJobIdUseCase.execute(
+        List<GetBillingWithOrganizationResponse> result = getBillingByJobIdUseCase.execute(
                 new BaseTokenRequest<>(
                         token,
                         jobId

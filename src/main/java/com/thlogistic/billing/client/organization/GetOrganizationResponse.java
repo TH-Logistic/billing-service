@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetOrganizationDto {
+public class GetOrganizationResponse {
     String id;
     String name;
     String creditCard;
